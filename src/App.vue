@@ -1,85 +1,41 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import Navbar from "./components/Navbar.vue";
+import { RouterView } from "vue-router";
+
+export default {
+  components: { Navbar },
+};
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <Navbar></Navbar>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <!-- jumbotron -->
+  <section class="mx-auto grid grid-cols-3 w-3/4 border border-black">
+    <button class="btn">Button</button>
+    <div class="col-start-1 col-end-3 border border-blue-400">
+      <img
+        src="https://www.thebluesville.com/wp-content/uploads/2022/03/DSCF9911-scaled.jpg"
+        alt=""
+        class="max-h-72 min-h-max"
+      />
     </div>
-  </header>
+
+    <div class="w-full border border-blue-400">
+      <h1 class="text-3xl">Indigo Dyeing</h1>
+      <p>
+        Admin BV On 15/03/2022 Indigo Dyeing We are doing some experiment in
+        Indigo Dyeing. Yesterday we had fun by indigo dyeing some of our wooden
+        bowl. The result looks amazing and interesting. The color may not to
+        bold, but...
+      </p>
+      <!-- <img
+        class="object-cover"
+        src="https://www.thebluesville.com/wp-content/uploads/2022/03/AH0A6900-1-scaled.jpg"
+        alt=""
+      /> -->
+    </div>
+  </section>
 
   <RouterView />
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
