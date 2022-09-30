@@ -16,8 +16,8 @@ export default {
   methods: {
     ...mapActions(useIndexStore, ["fetchProduct"]),
 
-    async fetch(s) {
-      await this.fetchProduct(s);
+    handleSearch(query) {
+      this.fetchProduct(query);
     },
   },
 
@@ -26,9 +26,7 @@ export default {
   },
 
   created() {
-    this.fetch();
-    this.productData = this.products;
-    // console.log(this.productData);
+    this.handleSearch();
   },
 };
 </script>
@@ -37,9 +35,9 @@ export default {
   <Carousel />
 
   <section id="home-section" class="flex justify-center mt-20">
-    <SideBar @fetch-product="fetch" />
+    <SideBar @handle-search="handleSearch" />
     <div class="gap-6 grid grid-cols-3 grid-rows-3">
-      <ProductCard v-for="product in productData" :product="product" />
+      <ProductCard v-for="product in products" :product="product" />
     </div>
   </section>
 </template>

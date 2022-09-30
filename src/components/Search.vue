@@ -1,7 +1,4 @@
 <script>
-import { mapActions } from "pinia";
-import { useIndexStore } from "../stores";
-
 export default {
   data() {
     return {
@@ -9,22 +6,17 @@ export default {
     };
   },
   methods: {
-    // ...mapActions(useIndexStore, ["fetchProduct"]),
-    fetchProduct() {
-      this.$emit("fetch-product", `?search=${this.search}`);
+    handleSearch() {
+      this.$emit("handle-search", `?search=${this.search}`);
     },
   },
-
-  // async created() {
-  // await this.fetchProduct();
-  // },
 };
 </script>
 
 <template>
   <div id="search">
     <div class="form-control w-full max-w-xs">
-      <form @submit.prevent="fetchProduct">
+      <form @submit.prevent="handleSearch">
         <label class="label">
           <span class="label-text">What is your name?</span>
         </label>

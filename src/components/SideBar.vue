@@ -11,26 +11,17 @@ export default {
   },
 
   methods: {
-    fetch(s) {
-      this.$emit("fetch-product", s);
+    handleSearch(query) {
+      this.$emit("handle-search", query);
     },
-    // ...mapActions(useIndexStore, ["fetchProduct"]),
   },
-  // computed: {
-  //   ...mapState(useIndexStore, ["products"]),
-  // },
-
-  // async created() {
-  //   await this.fetchProduct("query");
-  //   // this.productData = this.products;
-  // },
 };
 </script>
 <template>
   <!-- sidebar -->
   <div id="sidebar" class="border mr-8 border-stone-500">
     <FilterRadio />
-    <Search @fetch-product="fetch" />
+    <Search @handle-search="handleSearch" />
   </div>
 </template>
 <style></style>
