@@ -1,11 +1,26 @@
 import { defineStore } from "pinia";
-import axios from "axios";
-const baseURL = "http://localhost:3000";
+import axios from "../apis/axios-instance";
 
 export const useIndexStore = defineStore("index", {
   state: () => ({
-    isLogin: false,
+    isLoggedIn: false,
+    products: [],
   }),
 
-  actions: {},
+  actions: {
+    async fetchProduct(query) {
+      console.log(query);
+      try {
+        const { data } = await axios({
+          method: "get",
+          url: `/pub/products/${query ? query : ""}`,
+        });
+
+        console.log(data);
+        this.products = data;
+      } catch (err) {
+        console.log(err);
+      }
+    },
+  },
 });
