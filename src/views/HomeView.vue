@@ -16,7 +16,7 @@ export default {
   methods: {
     ...mapActions(useIndexStore, ["fetchProduct"]),
 
-    handleSearch(query) {
+    getProduct(query) {
       this.fetchProduct(query);
     },
   },
@@ -26,7 +26,7 @@ export default {
   },
 
   created() {
-    this.handleSearch();
+    this.getProduct();
   },
 };
 </script>
@@ -35,7 +35,7 @@ export default {
   <Carousel />
 
   <section id="home-section" class="flex justify-center mt-20">
-    <SideBar @handle-search="handleSearch" />
+    <SideBar @perform-query="getProduct" />
     <div class="gap-6 grid grid-cols-3 grid-rows-3">
       <ProductCard v-for="product in products" :product="product" />
     </div>
